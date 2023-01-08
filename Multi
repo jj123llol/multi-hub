@@ -257,6 +257,25 @@ Tab:AddToggle({
 })
 
 
+local Tab = Window:MakeTab({
+	Name = "Discord",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "copy discord",
+	Callback = function()
+      		setclipboard("https://discord.gg/DZJW5YGKfM")
+      		OrionLib:MakeNotification({
+	Name = "Copied!",
+	Content = "Copied Discord link",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
+
 
 
 
@@ -3223,6 +3242,107 @@ function DieAfter()
 
 end
 
-           
-           
+
+else 
+    
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    
+    local OrginalSpeed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+    local OrginalJump = game.Players.LocalPlayer.Character.Humanoid.JumpPower
+    
+    OrionLib:MakeNotification({
+	Name = "WARNING",
+	Content = "Game not supported loading universal....",
+	Image = "rbxassetid://4483345998",
+	Time = 15
+})
+    
+    local Window = OrionLib:MakeWindow({Name = "universal by jude/rev", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+    
+    
+    
+    local Tab = Window:MakeTab({
+	Name = "player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddSlider({
+	Name = "walk Speed",
+	Min = 0,
+	Max = 999,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Walkspeed",
+	Callback = function(Speed)
+		print(Speed)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Speed
+	end    
+})
+
+
+Tab:AddSlider({
+	Name = "jumppower",
+	Min = 0,
+	Max = 999,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Jumppower",
+	Callback = function(Jump)
+		print(Jump)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Jump
+	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Set speed to normal",
+	Callback = function()
+      		print("button pressed")
+      		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = OrginalSpeed
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Set jump to normal",
+	Callback = function()
+      		print("button pressed")
+      		game.Players.LocalPlayer.Character.Humanoid.JumpPower = OrginalJump
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Discord",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "copy discord",
+	Callback = function()
+      		setclipboard("https://discord.gg/DZJW5YGKfM")
+      		OrionLib:MakeNotification({
+	Name = "Copied!",
+	Content = "Copied Discord link",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Supported games",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddParagraph("Supports these games:","bully rp,crushed by speeding wall,zombie merge tycoon,lucky block battle grounds, and ability wars")
+
+
 end
